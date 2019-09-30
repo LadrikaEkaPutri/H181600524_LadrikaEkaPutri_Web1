@@ -12,7 +12,7 @@ class KategoriArtikelController extends Controller
 
         return view('kategori_artikel.index',compact('listKategoriArtikel'));
     }
-    public function show(){
+    public function show($id){
         $kategoriArtikel=KategoriArtikel::find($id);
 
        return view( 'kategori_artikel.show',compact ('kategoriArtikel')); 

@@ -8,13 +8,13 @@
                 <div class="card-header">List Artikel Kategori</div>
 
                 <div class="card-body">
-                <table Border="1">
+                 <table Border="1">
         <tr>
             <td>ID</td>
             <td>Nama</td>
             <td>Users Id</td>
             <td>Create</td>
-            <td>Aksi</td>
+            <td>Aksi</div>
         </tr>
                 
             @foreach($listKategoriArtikel as $item)  
@@ -24,14 +24,14 @@
             <td>{!! $item->users_id !!}</td>
             <td>{!! $item->created_at->format('d/m/Y H:i:s') !!}</td>
             <td>
-               <a href="{!! route ('kategori_artikel.show',[$item->id]) !!}">Lihat"</a>
+               <a href ="{!! route ('kategori_artikel.show',[$item->id]) !!}">Lihat</a>
+            </td>   
         </tr>
  @endforeach
     </table>
-                   
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                  </div>
+             </div>
+         </div>
+     </div>
+ </div>
 @endsection
