@@ -81,24 +81,32 @@
 
                     
 
-                         <div class="form-group row"> 
+                         
+                        <div class="form-group row">
                             <label for="captcha" class="col-md-4 col-form-label text-md-right">{{ __('captcha') }}</label>
 
                             <div class="col-md-6">
-                               <div class="captcha">
-                               {!! captcha_img() !!}
-                             <button type = "button" class ="btn btn-success btn-refresh">refresh</button>
+                               <div class="hasil_refereshcapcha">
+                                {!! captcha_img() !!}
+                                </div>
+                                <br>
+                                <a href="javascript:void(0)" onclick="refreshCaptcha()">Refresh</a>
                             </div>
-                            <input type="text" id="captcha" class="form-control" placeholder="Enter Captcha" name="captcha">
-                            @if ($errors->has('captcha'))
-                             <span class="help-block">
-                             <strong>{{$errors->first('captcha')}} </strong>
-                             </span>
-                             @endif
-                        </div>
-                      </div>  
+                        </div>   
+                        <div class="form-group row">
+                            <label for="captcha" class="col-md-4 col-form-label text-md-right">{{ __('confirm captcha') }}</label>
 
-                       
+                            <div class="col-md-6">
+                                <input id="captcha" type="text" class="form-control @error('captcha') is-invalid @enderror" name="captcha" required>
+
+                                @error('captcha')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                
 
 
                         <div class="form-group row mb-0">
@@ -114,4 +122,24 @@
         </div>
     </div>
 </div>
+@endsection
+
+
+@section('scripts')
+<script>
+function refreshCaptcha(){
+   $.ajax({
+    url: "/refereshcapcha",
+   type: 'get',
+  dataType: 'html',        
+  success: function(json) {
+    $('.hasil_refereshrecapcha').html(json);
+  },
+  error: function(data) {
+    alert('Try Again.');
+  }
+});
+}
+</script>                
+
 @endsection

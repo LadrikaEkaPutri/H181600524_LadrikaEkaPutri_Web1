@@ -57,12 +57,15 @@
                             <label for="captcha" class="col-md-4 col-form-label text-md-right">{{ __('captcha') }}</label>
 
                             <div class="col-md-6">
+                               <div class="hasil_refereshcapcha">
                                 {!! captcha_img() !!}
+                                </div>
+                                <br>
+                                <a href="javascript:void(0)" onclick="refreshCaptcha()">Refresh</a>
                             </div>
-                        </div>
-
+                        </div>   
                         <div class="form-group row">
-                            <label for="captcha" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
+                            <label for="captcha" class="col-md-4 col-form-label text-md-right">{{ __('confirm captcha') }}</label>
 
                             <div class="col-md-6">
                                 <input id="captcha" type="text" class="form-control @error('captcha') is-invalid @enderror" name="captcha" required>
@@ -106,4 +109,23 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+<script>
+function refreshCaptcha(){
+   $.ajax({
+    url: "/refereshcapcha",
+   type: 'get',
+  dataType: 'html',        
+  success: function(json) {
+    $('.hasil_refereshrecapcha').html(json);
+  },
+  error: function(data) {
+    alert('Try Again.');
+  }
+});
+}
+</script>                
+
 @endsection
