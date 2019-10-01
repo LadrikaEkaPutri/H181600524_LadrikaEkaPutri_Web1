@@ -21,7 +21,7 @@
                              
                 <div class="form-group row">
                 <label class="col-md-4 col-form-label text-md-right">Users Id</label>
-                <label class="col-md-8 col-form-label text-md-left">{{!! $kategoriArtikel->Users_id !!}}</label>
+                <label class="col-md-8 col-form-label text-md-left">{{!! $kategoriArtikel->users_id !!}}</label>
                 </div>
 
                 <div class="form-group row">
@@ -31,7 +31,7 @@
 
                 <div class="form-group row">
                 <label class="col-md-4 col-form-label text-md-right">Update</label>
-                <label class="col-md-8 col-form-label text-md-left">{!! $kategoriArtikel->updated_at->format('d/m/Y H:i:s')!!}</label>
+                <label class="col-md-8 col-form-label text-md-left">{{!! $kategoriArtikel->updated_at->format('d/m/Y H:i:s')!!}}</label>
                 </div>
 
                 <div class="form-group row mb-0">
