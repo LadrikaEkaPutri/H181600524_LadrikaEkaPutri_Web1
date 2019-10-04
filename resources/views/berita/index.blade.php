@@ -5,28 +5,31 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">List Artikel Kategori</div>
+                <div class="card-header">List Berita</div>
 
                 <div class="card-body">
-                <a href="{!! route('kategori_artikel.create') !!}" class="btn btn-primary">Tambah Data</a>
+                <a href="{!! route('berita.create') !!}" class="btn btn-primary">Tambah Data</a>
                  <table Border="1">
         <tr>
             <td>ID</td>
-            <td>Nama</td>
+            <td>Judul</td>
+            <td>Isi</td>
+            <td>Kategori Id</td>
             <td>Users Id</td>
             <td>Create</td>
             <td>Aksi</div>
         </tr>
                 
-            @foreach($listKategoriArtikel as $item)  
-        <tr> 
-        
+            @foreach($listBerita as $item)  
+        <tr>
             <td>{!! $item->id !!}</td>
-            <td>{!! $item->nama !!}</td>
+            <td>{!! $item->judul !!}</td>
+            <td>{!! $item->isi !!}</td>
+            <td>{!! $item->kategori_berita_id !!}</td>
             <td>{!! $item->users_id !!}</td>
             <td>{!! $item->created_at->format('d/m/Y H:i:s') !!}</td>
             <td>
-               <a href ="{!! route('kategori_artikel.show',[$item->id]) !!}" class="btn btn-sm btn-success">Lihat</a>
+               <a href ="{!! route('berita.show',[$item->id]) !!}" class="btn btn-sm btn-success">Lihat</a>
             </td>   
         </tr>
  @endforeach
@@ -37,3 +40,4 @@
      </div>
  </div>
 @endsection
+

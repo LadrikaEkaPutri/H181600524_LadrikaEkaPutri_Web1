@@ -5,10 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">List Artikel Kategori</div>
+                <div class="card-header">List Kategori Galeri</div>
 
                 <div class="card-body">
-                <a href="{!! route('kategori_artikel.create') !!}" class="btn btn-primary">Tambah Data</a>
+                <a href="{!! route('kategori_galeri.create') !!}" class="btn btn-primary">Tambah Data</a>
                  <table Border="1">
         <tr>
             <td>ID</td>
@@ -18,15 +18,14 @@
             <td>Aksi</div>
         </tr>
                 
-            @foreach($listKategoriArtikel as $item)  
-        <tr> 
-        
+            @foreach($listKategoriGaleri as $item)  
+        <tr>
             <td>{!! $item->id !!}</td>
             <td>{!! $item->nama !!}</td>
             <td>{!! $item->users_id !!}</td>
             <td>{!! $item->created_at->format('d/m/Y H:i:s') !!}</td>
             <td>
-               <a href ="{!! route('kategori_artikel.show',[$item->id]) !!}" class="btn btn-sm btn-success">Lihat</a>
+               <a href ="{!! route('kategori_galeri.show',[$item->id]) !!}" class="btn btn-sm btn-success">Lihat</a>
             </td>   
         </tr>
  @endforeach

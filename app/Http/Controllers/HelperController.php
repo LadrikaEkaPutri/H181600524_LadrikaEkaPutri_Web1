@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class HelperController extends Controller
 {
-     function refereshCapcha(){
+     function refreshCapcha(){
         return captcha_img();
     }
 }
