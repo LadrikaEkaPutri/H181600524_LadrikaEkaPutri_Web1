@@ -16,11 +16,15 @@ class ArtikelController extends Controller
     public function show($id){
         $artikel=Artikel::find($id);
 
+        
        return view( 'artikel.show',compact ('artikel')); 
     }
     
     public function create(){
-        return view('artikel.create');
+      $KategoriArtikel=KategoriArtikel::pluck('nama','id');
+ 
+
+        return view('artikel.create', compact('KategoriArtikel'));
     }
     public function store(Request $request){
         $input=$request->all();

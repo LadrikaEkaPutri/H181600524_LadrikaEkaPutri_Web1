@@ -24,7 +24,7 @@
 
  <script>
  $(document).ready(function(){
-    CKEDITOR.replace( 'isi' );
+    CKEDITOR.replace( 'keterangan' );
  });
  </script>
 @endsection

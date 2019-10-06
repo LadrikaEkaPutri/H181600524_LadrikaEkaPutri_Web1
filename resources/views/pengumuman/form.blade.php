@@ -15,12 +15,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="pengumuman" class="col-md-4 col-form-label text-md-right">{{ __('Pengumuman') }}</label>
+                            <label for="kategori_pengumuman_id" class="col-md-4 col-form-label text-md-right">{{ __('Kategori Pengumuman') }}</label>
                 
                             <div class="col-md-8">
-                            <input id="pengumuman" type="text" class="form-control @error('pengumuman') is-invalid @enderror" name="pengumuman" value="{{ old('pengumuman') }}" required autofocus>
+                            {!!  Form::select('kategori_pengumuman_id',$KategoriPengumuman,null,["class"=>"form-control","required"] ) !!}
 
-                                @error('pengumuman_id')
+                                @error('kategori_pengumuman_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -34,7 +34,7 @@
                             <label for="isi" class="col-md-4 col-form-label text-md-right">{{ __('isi') }}</label>
 
                             <div class="col-md-8">
-                            <input id="isi" type="text" class="form-control @error('isi') is-invalid @enderror" name="isi" value="{{ old('isi') }}" required autofocus>
+                            {!! Form::textarea('isi',null,['class'=>'form-control']); !!}
                                 @error('isi')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

@@ -16,15 +16,17 @@ class GaleriController extends Controller
     public function show($id){
       $Galeri=Galeri::find($id);
 
-     return view( 'galeri.show',compact (Galeri)); 
+     return view( 'galeri.show',compact ('Galeri')); 
   }
 
     public function create(){
-        
-      return view ('galeri.create');
+      $KategoriGaleri=KategoriGaleri::pluck('nama','id');
+ 
+
+      return view('galeri.create', compact('KategoriGaleri'));
 } 
   public function store(Request $request){
-  $input= $request->all();
+  $input=$request->all();
 
    Galeri::create($input);
 

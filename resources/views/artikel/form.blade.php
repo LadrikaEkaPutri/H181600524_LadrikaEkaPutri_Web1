@@ -18,7 +18,7 @@
                             <label for="kategori_artikel_id" class="col-md-2 col-form-label text-md-right">{{ __('Kategori Artikel') }}</label>
                 
                             <div class="col-md-10">
-                            <input id="kategori_artikel_id" type="text" class="form-control @error('kategori_artikel_id') is-invalid @enderror" name="kategori_artikel_id" value="{{ old('kategori_artikel_id') }}" required autofocus>
+                          {!!  Form::select('kategori_artikel_id',$KategoriArtikel,null,["class"=>"form-control","required"] ) !!}
 
                                 @error('kategori_artikel_id')
                                     <span class="invalid-feedback" role="alert">
@@ -31,10 +31,10 @@
               
 
                         <div class="form-group row">
-                            <label for="isi" class="col-md-2 col-form-label text-md-right">{{ __('isi') }}</label>
+                            <label for="isi" class="col-md-2 col-form-label text-md-right">{{ __('Isi') }}</label>
 
                             <div class="col-md-10">
-                            <input id="isi" type="text" class="form-control @error('isi') is-invalid @enderror" name="isi" value="{{ old('isi') }}" required autofocus>
+                            {!! Form::textarea('isi',null,['class'=>'form-control']); !!}
                                 @error('isi')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -51,7 +51,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __(' Simpan Data') }}
                                 </button>
-                                <a href="{!! route('kategori_artikel.index') !!}" class="btn btn-danger">
+                                <a href="{!! route('artikel.index') !!}" class="btn btn-danger">
                                     {{ __('Batal') }}
                                </a>
                             </div>

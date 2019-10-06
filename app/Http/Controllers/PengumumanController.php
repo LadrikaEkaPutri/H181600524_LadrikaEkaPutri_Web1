@@ -16,15 +16,17 @@ class PengumumanController extends Controller
     public function show($id){
       $Pengumuman=Pengumuman::find($id);
 
-     return view( 'pengumuman.show',compact (Pengumuman)); 
+     return view( 'pengumuman.show',compact ('Pengumuman')); 
   }
 
     public function create(){
-        
-      return view ('pengumuman.create');
+      $KategoriPengumuman=KategoriPengumuman::pluck('nama','id');
+ 
+
+      return view('pengumuman.create', compact('KategoriPengumuman'));
 } 
   public function store(Request $request){
-  $input= $request->all();
+  $input=$request->all();
 
   Pengumuman::create($input);
 

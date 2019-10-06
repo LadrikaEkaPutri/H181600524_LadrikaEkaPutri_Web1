@@ -42,7 +42,7 @@
 
                 <div class="form-group row">
                 <label class="col-md-4 col-form-label text-md-right">Kategori Id</label>
-                <label class="col-md-8 col-form-label text-md-left">{!! $galeri->kategori_berita_id !!}</label>
+                <label class="col-md-8 col-form-label text-md-left">{!! $galeri->kategori_galeri_id !!}</label>
                 </div>
                                 
                 <div class="form-group row">
