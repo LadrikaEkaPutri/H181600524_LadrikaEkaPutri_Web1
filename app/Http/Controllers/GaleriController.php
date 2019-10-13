@@ -16,11 +16,15 @@ class GaleriController extends Controller
     public function show($id){
       $Galeri=Galeri::find($id);
 
+      if(empty($Galeri)){
+        return redirect(route ('galeri.index'));
+  }
+
      return view( 'galeri.show',compact ('Galeri')); 
   }
 
     public function create(){
-      $KategoriGaleri=KategoriGaleri::pluck('nama','id');
+      $kategoriGaleri=KategoriGaleri::pluck('nama','id');
  
 
       return view('galeri.create', compact('KategoriGaleri'));
@@ -31,5 +35,38 @@ class GaleriController extends Controller
    Galeri::create($input);
 
   return redirect(route('galeri.index'));
+  }
+  public function edit($id){
+    $Galeri=Galeri::find($id);
+  
+      if(empty($Galeri)){
+        return redirect(route ('galeri.index'));
+  }
+   
+  $kategoriGaleri=KategoriGaleri::pluck('nama','id');
+ 
+
+  return view('galeri.edit',compact('kategoriGaleri','Galeri'));
+  }
+  
+  public function update($id,Request $request){
+  $Galeri=Galeri::find($id);
+  $input= $request->all();
+  
+  if(empty($Galeri)){
+    return redirect(route ('galeri.index'));
+  }
+  $Galeri->update($input);
+  
+  return redirect(route ('galeri.index'));
+  }
+  public function destroy($id){
+    $Galeri=Galeri::find($id);
+  
+    if(empty($Galeri)){
+      return redirect(route ('galeri.index'));
+    }
+    $Galeri->delete();
+    return redirect(route('galeri.index'));
   }
 }

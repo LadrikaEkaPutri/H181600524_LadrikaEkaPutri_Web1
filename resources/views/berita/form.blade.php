@@ -4,7 +4,7 @@
                             <label for="judul" class="col-md-2 col-form-label text-md-right">{{ __('judul') }}</label>
 
                             <div class="col-md-10">
-                                <input id="judul" type="text" class="form-control @error('judul') is-invalid @enderror" name="judul" value="{{ old('judul') }}" required autofocus>
+                            {!! Form::text('judul',null,['class' =>"form-control",'required','autofocus']); !!}
 
                                 @error('judul')
                                     <span class="invalid-feedback" role="alert">
@@ -18,7 +18,8 @@
                             <label for="kategori_berita_id" class="col-md-2 col-form-label text-md-right">{{ __('Kategori Berita') }}</label>
                 
                             <div class="col-md-10">
-                            {!!  Form::select('kategori_berita_id',$KategoriBerita,null,["class"=>"form-control","required"] ) !!}
+                            {!!  Form::select('kategori_berita_id', $kategoriBerita,null,["class"=>"form-control","required"] ) !!}
+
                                 @error('kategori_berita_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -43,7 +44,7 @@
                         </div>
 
                                
-                                <input id="nama" type="hidden" class="form-control @error('users_id') is-invalid @enderror" name="users_id" value="{{ Auth::id() }}" autofocus>
+                        {!! Form::hidden('users_id',Auth::id() ); !!}  
 
                                 <div class="form-group row mb-0">
                             <div class="col-md-10 offset-md-2">
