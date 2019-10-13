@@ -23,7 +23,7 @@ class ArtikelController extends Controller
     }
     
     public function create(){
-      $KategoriArtikel=KategoriArtikel::pluck('nama','id');
+      $kategoriArtikel=KategoriArtikel::pluck('nama','id');
  
 
         return view('artikel.create', compact('kategoriArtikel'));

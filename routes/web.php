@@ -25,6 +25,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('refresh_captcha','HomeController@index')->name('refresh_captcha');
 
 Route::resource('kategori_artikel','KategoriArtikelController');
+Route::get('kategori_artikel/trash','KategoriArtikelController@trash')->name('kategori_artikel.trash');
 
 /*Route::get('/kategori_artikel','KategoriArtikelController@index')->name('kategori_artikel.index');
 Route::get('/kategori_artikel/create','KategoriArtikelController@create')->name('kategori_artikel.create');
@@ -34,7 +35,9 @@ Route::get('/kategori_artikel/{id}/edit','KategoriArtikelController@edit')->name
 Route::patch('/kategori_artikel/{id}','KategoriArtikelController@update')->name('kategori_artikel.update');
 Route::delete('/kategori_artikel/{id}','KategoriArtikelController@destroy')->name('kategori_artikel.destroy');*/
 
+
 Route::resource('kategori_berita','KategoriBeritaController');
+
 
 /*Route::get('/kategori_berita','KategoriBeritaController@index')->name('kategori_berita.index');
 Route::get('/kategori_berita/create','KategoriBeritaController@create')->name('kategori_berita.create');

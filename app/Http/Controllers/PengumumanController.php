@@ -23,7 +23,7 @@ class PengumumanController extends Controller
       $kategoriPengumuman=KategoriPengumuman::pluck('nama','id');
  
 
-      return view('pengumuman.create', compact('KategoriPengumuman'));
+      return view('pengumuman.create', compact('kategoriPengumuman'));
 } 
   public function store(Request $request){
   $input=$request->all();
