@@ -61,7 +61,7 @@ public function destroy($id){
   if(empty($Pengumuman)){
     return redirect(route ('pengumuman.index'));
   }
-  $pengumuman->delete();
+  $Pengumuman->delete();
   return redirect(route('pengumuman.index'));
 }
 }

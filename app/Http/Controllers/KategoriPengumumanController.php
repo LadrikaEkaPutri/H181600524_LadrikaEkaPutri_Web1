@@ -21,7 +21,7 @@ class KategoriPengumumanController extends Controller
      return view( 'kategori_pengumuman.show',compact ('kategoriPengumuman')); 
   }
 
-    public function create(){
+    public function create(){ 
         
       return view ('kategori_pengumuman.create');
 } 
@@ -58,7 +58,12 @@ public function destroy($id){
   if(empty($kategoriPengumuman)){
     return redirect(route ('kategori_pengumuman.index'));
   }
-  $kategoripengumuman->delete();
+  $kategoriPengumuman->delete();
   return redirect(route('kategori_pengumuman.index'));
+}
+public function trash(){
+  $listKategoriPengumuman=KategoriPengumuman::onlyTrashed();
+
+  return view('kategori_pengumuman.index',compact('listKategoriPengumuman'));
 }
 }

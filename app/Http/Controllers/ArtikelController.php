@@ -45,8 +45,6 @@ class ArtikelController extends Controller
  
 
       return view('artikel.edit', compact('Artikel','kategoriArtikel'));
-
-   
     }
   
     public function update($id,Request $request){
@@ -69,7 +67,6 @@ class ArtikelController extends Controller
       $Artikel->delete();
       return redirect(route('artikel.index'));
   }
-
   }
 
     
